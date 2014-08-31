@@ -62,4 +62,11 @@ angular.module('vSeeApp')
                 ]
             }
         };
+        $scope.shouldShowChart = true;
+        $scope.showChart = function() {
+            $scope.shouldShowChart = true;
+        };
+        $scope.showData = function() {
+            $scope.shouldShowChart = false;
+        };
     }]);
