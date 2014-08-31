@@ -8,7 +8,7 @@
  * Service in the vSeeApp.
  */
 angular.module('vSeeApp')
-    .service('BuildRepository', ['$q', function BuildRepository($q) {
+    .service('BuildRepository', ['$q', function($q) {
         var builds = [
             {time: '2014-06-02T09:30:26', status: 'pass'},
             {time: '2014-06-03T09:30:26', status: 'fail'},
