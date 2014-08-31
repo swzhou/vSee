@@ -16,7 +16,25 @@
         <h1 class="page-header">Green build</h1>
         <div class="row placeholders">
             <chartjs width="myChart.width" height="myChart.height" data="myChart.data" options="MyChart.options"
-                     is-type="Doughnut"></chartjs>
+                     is-type="Line"></chartjs>
+        </div>
+        <div class="row placeholders table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="placeholders">#</th>
+                        <th class="placeholders">Build Time</th>
+                        <th class="placeholders">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="build in builds">
+                        <td>{{$index + 1}}</td>
+                        <td>{{build.time}}</td>
+                        <td>{{build.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
