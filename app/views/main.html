@@ -1,4 +1,22 @@
 <div class="row">
-    <chartjs width="myChart.width" height="myChart.height" data="myChart.data" options="MyChart.options"
-             is-type="Doughnut"></chartjs>
+    <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li class="active">
+                <a href="">Green build</a>
+            </li>
+            <li>
+                <a href="">Build time</a>
+            </li>
+            <li>
+                <a href="">Test coverage</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 main">
+        <h1 class="page-header">Green build</h1>
+        <div class="row placeholders">
+            <chartjs width="myChart.width" height="myChart.height" data="myChart.data" options="MyChart.options"
+                     is-type="Doughnut"></chartjs>
+        </div>
+    </div>
 </div>
