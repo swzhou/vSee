@@ -12,14 +12,8 @@ angular.module('vSeeApp')
         function ($scope, BuildRepository, GreenBuildService, LineChartService) {
             BuildRepository.getAll().then(function (builds) {
                 $scope.builds = builds;
-                var results = GreenBuildService.calculate($scope.builds);
                 var months = moment.months();
-                var data = _.map(months, function (month) {
-                    var result = _.find(results, function (result) {
-                        return result.month === month;
-                    });
-                    return !!result ? result.greenRate : 0;
-                });
+                var data = calculateChartData(months);
                 $scope.chart = LineChartService.draw(months, data);
             });
 
@@ -30,4 +24,14 @@ angular.module('vSeeApp')
             $scope.showData = function () {
                 $scope.shouldShowChart = false;
             };
+
+            function calculateChartData(months) {
+                var results = GreenBuildService.calculate($scope.builds);
+                return _.map(months, function (month) {
+                    var result = _.find(results, function (result) {
+                        return result.month === month;
+                    });
+                    return !!result ? result.greenRate : 0;
+                });
+            }
         }]);
