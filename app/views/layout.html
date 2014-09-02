@@ -1,0 +1,15 @@
+<div class="row" ng-controller="MainCtrl">
+    <div ng-include="'views/sidebar.html'"></div>
+    <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 main">
+        <h1 class="page-header">{{getTitle()}}</h1>
+        <ul class="nav nav-tabs">
+            <li ng-class="{active: shouldShowChart}">
+                <a ng-click="showChart()">Chart</a>
+            </li>
+            <li ng-class="{active: !shouldShowChart}">
+                <a ng-click="showData()">Data</a>
+            </li>
+        </ul>
+        <div ng-view></div>
+    </div>
+</div>

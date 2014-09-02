@@ -23,9 +23,9 @@ angular
                 templateUrl: 'views/green-build.html',
                 controller: 'GreenBuildCtrl'
             })
-            .when('/about', {
-                templateUrl: 'views/about.html',
-                controller: 'AboutCtrl'
+            .when('/build-time', {
+              templateUrl: 'views/build-time.html',
+              controller: 'BuildTimeCtrl'
             })
             .otherwise({
                 redirectTo: '/green-build'

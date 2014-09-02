@@ -17,14 +17,6 @@ angular.module('vSeeApp')
                 $scope.chart = LineChartService.draw(months, data);
             });
 
-            $scope.shouldShowChart = true;
-            $scope.showChart = function () {
-                $scope.shouldShowChart = true;
-            };
-            $scope.showData = function () {
-                $scope.shouldShowChart = false;
-            };
-
             function calculateChartData(months) {
                 var results = GreenBuildService.calculate($scope.builds);
                 return _.map(months, function (month) {
