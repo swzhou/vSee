@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name vSeeApp.controller:MainCtrl
+ * @name vSeeApp.controller:GreenBuildCtrl
  * @description
- * # MainCtrl
+ * # GreenBuildCtrl
  * Controller of the vSeeApp
  */
 angular.module('vSeeApp')
-    .controller('MainCtrl', ['$scope', 'BuildRepository', 'GreenBuildService', 'LineChartService',
+    .controller('GreenBuildCtrl', ['$scope', 'BuildRepository', 'GreenBuildService', 'LineChartService',
         function ($scope, BuildRepository, GreenBuildService, LineChartService) {
             BuildRepository.getAll().then(function (builds) {
                 $scope.builds = builds;
