@@ -15,7 +15,10 @@
             <input type="number" ng-model="build.duration" class="form-control">
         </td>
         <td>
-            <input ng-model="build.status" class="form-control">
+            <select ng-model="build.status" class="form-control">
+                <option value="pass">pass</option>
+                <option value="fail">fail</option>
+            </select>
         </td>
     </tr>
     </tbody>
