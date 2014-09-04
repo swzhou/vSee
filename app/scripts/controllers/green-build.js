@@ -26,7 +26,7 @@ angular.module('vSeeApp')
                     var result = _.find(results, function (result) {
                         return result.month === month;
                     });
-                    return !!result ? result.greenRate : 0;
+                    return !!result ? result.value : 0;
                 });
             }
         }]);

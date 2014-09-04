@@ -20,7 +20,7 @@ angular.module('vSeeApp')
                     }).length;
                     return {
                         month: moment.monthsShort()[index],
-                        greenRate: greenBuildAmount / group.length
+                        value: greenBuildAmount / group.length
                     };
                 });
             }

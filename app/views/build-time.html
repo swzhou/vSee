@@ -1,6 +1,7 @@
 <div ng-switch="shouldShowChart">
     <div ng-switch-when="true" class="row placeholders">
-        <div ac-chart="chartType" ac-data="data" ac-config="config"></div>
+        <!--<div ac-chart="chartType" ac-data="data" ac-config="config"></div>-->
+        <canvas linechart options="options" data="chart" responsive="true"></canvas>
     </div>
     <div ng-switch-when="false" class="row placeholders table-responsive">
         <div ng-include="'views/build-data.html'"></div>
