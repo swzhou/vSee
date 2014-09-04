@@ -1,8 +1,8 @@
-<div>
-    <div ng-show="shouldShowChart" class="row placeholders">
+<div ng-switch="shouldShowChart">
+    <div ng-switch-when="true" class="row placeholders">
         <div ac-chart="chartType" ac-data="data" ac-config="config"></div>
     </div>
-    <div ng-show="!shouldShowChart" class="row placeholders table-responsive">
+    <div ng-switch-when="false" class="row placeholders table-responsive">
         <div ng-include="'views/build-data.html'"></div>
     </div>
 </div>
