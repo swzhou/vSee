@@ -19,7 +19,7 @@ angular.module('vSeeApp')
                         return elem.status === 'pass';
                     }).length;
                     return {
-                        month: moment.months()[index],
+                        month: moment.monthsShort()[index],
                         greenRate: greenBuildAmount / group.length
                     };
                 });

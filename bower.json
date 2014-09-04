@@ -12,10 +12,11 @@
     "angular-animate": "1.2.16",
     "angular-touch": "1.2.16",
     "angular-route": "1.2.16",
-    "chartjs": "~0.2.0",
+    "chartjs": "~1.0.1-beta.2",
     "moment": "~2.8.2",
     "underscore": "~1.7.0",
-    "angular-charts": "~0.2.5"
+    "angular-charts": "~0.2.5",
+    "angles": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

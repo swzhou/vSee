@@ -1,9 +1,8 @@
-<div>
-    <div ng-show="shouldShowChart" class="row placeholders">
-        <chartjs width="chart.width" height="chart.height" data="chart.data" options="chart.options"
-                 is-type="Line"></chartjs>
+<div ng-switch="shouldShowChart">
+    <div ng-switch-when="true" class="row placeholders">
+        <canvas linechart options="options" data="chart" responsive="true"></canvas>
     </div>
-    <div ng-show="!shouldShowChart" class="row placeholders table-responsive">
+    <div ng-switch-when="false" class="row placeholders table-responsive">
         <div ng-include="'views/build-data.html'"></div>
     </div>
 </div>
