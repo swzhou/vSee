@@ -17,7 +17,8 @@ angular
         'ngSanitize',
         'ngTouch',
         'angularCharts',
-        'angles'
+        'angles',
+        'mgcrea.ngStrap'
     ])
     .config(function ($routeProvider) {
         $routeProvider

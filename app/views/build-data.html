@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th class="placeholders">#</th>
-        <th class="placeholders">Build Time</th>
+        <th class="placeholders" colspan="2">Build Time</th>
         <th class="placeholders">Duration (s)</th>
         <th class="placeholders">Status</th>
     </tr>
@@ -10,7 +10,14 @@
     <tbody>
     <tr ng-repeat="build in builds | orderBy:time">
         <td>{{$index + 1}}</td>
-        <td>{{build.time}}</td>
+        <td>
+            <input type="text" class="form-control" ng-model="build.time" data-autoclose="1" placeholder="Date"
+                   bs-datepicker style>
+        </td>
+        <td>
+            <input type="text" class="form-control" ng-model="build.time" data-autoclose="1" placeholder="Time"
+                   bs-timepicker style>
+        </td>
         <td>
             <input type="number" ng-model="build.duration" class="form-control">
         </td>
