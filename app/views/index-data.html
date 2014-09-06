@@ -9,24 +9,24 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="build in builds | orderBy:time">
+    <tr ng-repeat="datum in data | orderBy:time">
         <td>{{$index + 1}}</td>
         <td>
-            <input type="text" ng-model="build.pipeline" class="form-control">
+            <input type="text" ng-model="datum.pipeline" class="form-control">
         </td>
         <td>
-            <input type="text" class="form-control" ng-model="build.time" data-autoclose="1" placeholder="Date"
+            <input type="text" class="form-control" ng-model="datum.time" data-autoclose="1" placeholder="Date"
                    bs-datepicker style>
         </td>
         <td>
-            <input type="text" class="form-control" ng-model="build.time" data-autoclose="1" placeholder="Time"
+            <input type="text" class="form-control" ng-model="datum.time" data-autoclose="1" placeholder="Time"
                    bs-timepicker style>
         </td>
         <td>
-            <input type="number" ng-model="build.duration" class="form-control">
+            <input type="number" ng-model="datum.duration" class="form-control">
         </td>
         <td>
-            <select ng-model="build.status" class="form-control">
+            <select ng-model="datum.status" class="form-control">
                 <option value="pass">pass</option>
                 <option value="fail">fail</option>
             </select>

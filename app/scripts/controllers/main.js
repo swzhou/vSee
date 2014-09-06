@@ -8,11 +8,11 @@
  * Controller of the vSeeApp
  */
 angular.module('vSeeApp')
-    .controller('MainCtrl', function ($scope, $location) {
+    .controller('MainCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
         $scope.metrics = [
-            {name: 'Green Build', route: '/green-build'},
-            {name: 'Build Time', route: '/build-time'},
-            {name: 'Test Coverage', route: '/test-coverage'}
+            {name: 'Green Build', route: '/indexes/green-build'},
+            {name: 'Build Time', route: '/indexes/build-time'},
+            {name: 'Test Coverage', route: '/indexes/test-coverage'}
         ];
         $scope.isActive = function(metric) {
             return $location.path() === metric.route ? 'active' : '';
@@ -31,4 +31,4 @@ angular.module('vSeeApp')
         $scope.showData = function () {
             $scope.shouldShowChart = false;
         };
-    });
+    }]);

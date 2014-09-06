@@ -50,7 +50,7 @@
     <div class="row">
         <div ng-include="'views/sidebar.html'"></div>
         <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 main">
-            <h1 class="page-header">{{getTitle()}}</h1>
+            <h1 class="page-header"><span ng-bind="getTitle()"></span></h1>
             <ul class="nav nav-tabs">
                 <li ng-class="{active: shouldShowChart}">
                     <a href="" ng-click="showChart()">Chart</a>
@@ -119,16 +119,15 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/controllers/green-build.js"></script>
+<script src="scripts/controllers/index.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/directives/chartjs.js"></script>
-<script src="scripts/services/greenbuildservice.js"></script>
+<script src="scripts/services/calculationservice.js"></script>
 <script src="scripts/services/buildrepository.js"></script>
 <script src="scripts/services/linechartservice.js"></script>
-<script src="scripts/controllers/build-time.js"></script>
 <script src="scripts/controllers/main.js"></script>
-<script src="scripts/services/buildtimeservice.js"></script>
 <script src="scripts/services/color.js"></script>
+<script src="data/calculators/green-build.js"></script>
 <!-- endbuild -->
 </body>
 </html>

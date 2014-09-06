@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Service: GreenBuildService', function () {
+describe('Service: CalculationService', function () {
 
   // load the service's module
   beforeEach(module('vSeeApp'));
