@@ -14,7 +14,7 @@ angular.module('vSeeApp')
                 var currentIndex = _.find($scope.indexes, function (index) {
                     return $routeParams.index === index.id;
                 });
-                $http.get(currentIndex.data).then(function (response) {
+                $scope.dataLoaded = $http.get(currentIndex.data).then(function (response) {
                     $scope.data = response.data;
                     $scope.options = {};
                     var months = moment.monthsShort();

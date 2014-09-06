@@ -1,35 +1,29 @@
-<table class="table table-bordered table-hover table-striped">
+<table class="table table-bordered table-hover table-striped" ng-controller="DataCtrl">
     <thead>
     <tr>
         <th class="placeholders">#</th>
-        <th class="placeholders">Pipeline</th>
-        <th class="placeholders" colspan="2">Build Time</th>
-        <th class="placeholders">Duration (s)</th>
-        <th class="placeholders">Status</th>
+        <th ng-repeat="definition in definitions" colspan="{{definition.colspan}}" class="placeholders">
+            <span ng-bind="definition.displayName"></span>
+        </th>
     </tr>
     </thead>
     <tbody>
     <tr ng-repeat="datum in data | orderBy:time">
         <td>{{$index + 1}}</td>
-        <td>
-            <input type="text" ng-model="datum.pipeline" class="form-control">
-        </td>
-        <td>
-            <input type="text" class="form-control" ng-model="datum.time" data-autoclose="1" placeholder="Date"
-                   bs-datepicker style>
-        </td>
-        <td>
-            <input type="text" class="form-control" ng-model="datum.time" data-autoclose="1" placeholder="Time"
-                   bs-timepicker style>
-        </td>
-        <td>
-            <input type="number" ng-model="datum.duration" class="form-control">
-        </td>
-        <td>
-            <select ng-model="datum.status" class="form-control">
-                <option value="pass">pass</option>
-                <option value="fail">fail</option>
-            </select>
+        <td ng-repeat="definition in definitions" colspan="{{definition.colspan}}">
+            <div ng-switch="definition.type">
+                <input ng-switch-when="text" type="{{definition.type}}" ng-model="datum[definition.property]"
+                       class="form-control">
+                <input ng-switch-when="number" type="{{definition.type}}" ng-model="datum[definition.property]"
+                       class="form-control">
+                <select ng-switch-when="select" ng-options="value for value in definition.options"
+                        ng-model="datum[definition.property]" class="form-control">
+                </select>
+                <input ng-switch-when="datetime" type="text" class="form-control form-inline" ng-model="datum[definition.property]"
+                       data-autoclose="1" placeholder="Date" bs-datepicker>
+                <input ng-switch-when="datetime" type="text" class="form-control form-inline" ng-model="datum[definition.property]"
+                       data-autoclose="1" placeholder="Time" bs-timepicker>
+            </div>
         </td>
     </tr>
     </tbody>
