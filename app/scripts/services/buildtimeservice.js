@@ -11,20 +11,26 @@ angular.module('vSeeApp')
     .service('BuildTimeService', [function () {
         return {
             calculate: function (builds) {
-                var groups = _.groupBy(builds, function (build) {
-                    return moment(build.time).month();
+                var pipelines = _.groupBy(builds, function (build) {
+                    return  build.pipeline;
                 });
-                return _.map(groups, function (group, index) {
-                    var greenBuilds = _.filter(group, function(elem) {
-                        return elem.status === 'pass';
+                return _.map(pipelines, function (pipeline) {
+                    var pipelineInfo = _.map(moment.monthsShort(), function () {
+                        return {
+                            totalBuildTime: 0,
+                            totalNumber: 0
+                        }
                     });
-                    var totalBuildTime = _.reduce(greenBuilds, function(sum, build) {
-                        return sum + build.duration;
-                    }, 0);
-                    return {
-                        month: moment.monthsShort()[index],
-                        value: greenBuilds.length === 0 ? 0 : totalBuildTime / greenBuilds.length
-                    };
+                    _.each(pipeline, function (build) {
+                        var monthIndex = moment(build.time).month();
+                        if (build.status === 'pass') {
+                            pipelineInfo[monthIndex].totalNumber += 1;
+                            pipelineInfo[monthIndex].totalBuildTime += build.duration;
+                        }
+                    });
+                    return _.map(pipelineInfo, function (info) {
+                        return info.totalNumber === 0 ? 0 : info.totalBuildTime / info.totalNumber;
+                    });
                 });
             }
         };
