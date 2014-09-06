@@ -70,6 +70,11 @@ body {
     margin: 0 1%;
 }
 
+.datetime-input {
+    width: 49%;
+    display: inline;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     /* Remove the padding we set earlier */
@@ -101,5 +106,10 @@ body {
         width: 80%;
         height: 350px;
         margin: 0 1%;
+    }
+
+    .datetime-input {
+        width: 49%;
+        display: inline;
     }
 }
