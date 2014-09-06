@@ -1,7 +1,7 @@
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
-        <li ng-repeat="metric in metrics" ng-class="isActive(metric)">
-            <a href="#{{metric.route}}">{{metric.name}}</a>
+        <li ng-repeat="index in indexes" ng-class="isActive(index)">
+            <a ng-href="#/indexes/{{index.id}}">{{index.name}}</a>
         </li>
     </ul>
 </div>

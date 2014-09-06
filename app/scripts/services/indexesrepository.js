@@ -2,18 +2,18 @@
 
 /**
  * @ngdoc service
- * @name vSeeApp.BuildRepository
+ * @name vSeeApp.IndexesRepository
  * @description
- * # BuildRepository
+ * # IndexesRepository
  * Service in the vSeeApp.
  */
 angular.module('vSeeApp')
-    .service('BuildRepository', ['$http', function($http) {
+  .service('IndexesRepository', ['$http', function($http) {
         return {
             getAll: function() {
-                return $http.get('data/json/builds.json').then(function(response) {
+                return $http.get('data/json/indexes.json').then(function(response) {
                     return response.data;
                 });
             }
         };
-    }]);
+  }]);
