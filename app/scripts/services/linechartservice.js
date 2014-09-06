@@ -14,13 +14,14 @@ angular.module('vSeeApp')
                 var lineLabels = result.labels;
                 var data = result.data;
                 var datasets = _.map(data, function (datum, index) {
+                    var colorIndex = index % color.length;
                     return {
                         label: lineLabels[index],
-                        fillColor: color[index].fillColor,
-                        strokeColor: color[index].strokeColor,
-                        pointColor: color[index].pointColor,
-                        pointStrokeColor: color[index].pointStrokeColor,
-                        pointHighlightFill: color[index].pointHighlightFill,
+                        fillColor: color[colorIndex].fillColor,
+                        strokeColor: color[colorIndex].strokeColor,
+                        pointColor: color[colorIndex].pointColor,
+                        pointStrokeColor: color[colorIndex].pointStrokeColor,
+                        pointHighlightFill: color[colorIndex].pointHighlightFill,
                         data: datum
                     };
                 });

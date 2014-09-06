@@ -10,7 +10,7 @@
     <tbody>
     <tr ng-repeat="datum in data | orderBy:time">
         <td>{{$index + 1}}</td>
-        <td ng-repeat="definition in definitions"">
+        <td ng-repeat="definition in definitions">
             <div ng-switch="definition.type">
                 <input ng-switch-when="text" type="{{definition.type}}" ng-model="datum[definition.property]"
                        class="form-control">

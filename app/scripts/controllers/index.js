@@ -11,6 +11,7 @@ angular.module('vSeeApp')
     .controller('IndexCtrl', ['$scope', 'CalculationService', 'LineChartService', '$routeParams', '$http',
         function ($scope, CalculationService, LineChartService, $routeParams, $http) {
             $scope.indexesLoaded.then(function() {
+                $scope.chartType = 'Bar';
                 var currentIndex = _.find($scope.indexes, function (index) {
                     return $routeParams.index === index.id;
                 });
