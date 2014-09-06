@@ -2,21 +2,21 @@
 
 /**
  * @ngdoc service
- * @name vSeeApp.LineChartService
+ * @name vSeeApp.ChartService
  * @description
- * # LineChartService
+ * # ChartService
  * Service in the vSeeApp.
  */
 angular.module('vSeeApp')
-    .service('LineChartService', ['color', function (color) {
+    .service('ChartService', ['color', function (color) {
         return {
             draw: function (labels, result) {
-                var lineLabels = result.labels;
+                var dataLabels = result.labels;
                 var data = result.data;
                 var datasets = _.map(data, function (datum, index) {
                     var colorIndex = index % color.length;
                     return {
-                        label: lineLabels[index],
+                        label: dataLabels[index],
                         fillColor: color[colorIndex].fillColor,
                         strokeColor: color[colorIndex].strokeColor,
                         pointColor: color[colorIndex].pointColor,

@@ -8,8 +8,8 @@
  * Controller of the vSeeApp
  */
 angular.module('vSeeApp')
-    .controller('IndexCtrl', ['$scope', 'CalculationService', 'LineChartService', '$routeParams', '$http', 'ChartTypes',
-        function ($scope, CalculationService, LineChartService, $routeParams, $http, ChartTypes) {
+    .controller('IndexCtrl', ['$scope', 'CalculationService', 'ChartService', '$routeParams', '$http', 'ChartTypes',
+        function ($scope, CalculationService, ChartService, $routeParams, $http, ChartTypes) {
             $scope.chartOptions = {};
             $scope.indexesLoaded.then(function() {
                 $scope.chartTypes = ChartTypes;
@@ -26,7 +26,7 @@ angular.module('vSeeApp')
                     var months = moment.monthsShort();
                     $scope.$watch('data', function(data) {
                         CalculationService.calculate(currentIndex.calculator, data).then(function(result) {
-                            $scope.chart = LineChartService.draw(months, result);
+                            $scope.chart = ChartService.draw(months, result);
                         });
                     }, true);
                 });
