@@ -18,7 +18,8 @@ angular
         'ngTouch',
         'angularCharts',
         'angles',
-        'mgcrea.ngStrap'
+        'mgcrea.ngStrap',
+        'colorpicker.module'
     ])
     .config(function ($routeProvider) {
         $routeProvider

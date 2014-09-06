@@ -15,7 +15,6 @@ angular.module('vSeeApp')
                     labels: labels,
                     datasets: [
                         {
-                            label: 'Green Build Rate',
                             fillColor : "rgba(151,187,205,0)",
                             strokeColor : "#e67e22",
                             pointColor : "rgba(151,187,205,0)",
