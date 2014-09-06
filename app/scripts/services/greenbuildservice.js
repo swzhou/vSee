@@ -11,17 +11,26 @@ angular.module('vSeeApp')
     .service('GreenBuildService', function GreenBuildService() {
         return {
             calculate: function (builds) {
-                var groups = _.groupBy(builds, function (build) {
-                    return moment(build.time).month();
+                var pipelines = _.groupBy(builds, function (build) {
+                    return  build.pipeline;
                 });
-                return _.map(groups, function (group, index) {
-                    var greenBuildAmount = _.filter(group, function(elem) {
-                        return elem.status === 'pass';
-                    }).length;
-                    return {
-                        month: moment.monthsShort()[index],
-                        value: greenBuildAmount / group.length
-                    };
+                return _.map(pipelines, function (pipeline) {
+                    var pipelineInfo = _.map(moment.monthsShort(), function () {
+                        return {
+                            greenNumber: 0,
+                            totalNumber: 0
+                        }
+                    });
+                    _.each(pipeline, function (build) {
+                        var monthIndex = moment(build.time).month();
+                        pipelineInfo[monthIndex].totalNumber += 1;
+                        if (build.status === 'pass') {
+                            pipelineInfo[monthIndex].greenNumber += 1;
+                        }
+                    });
+                    return _.map(pipelineInfo, function (info) {
+                        return info.totalNumber === 0 ? 0 : info.greenNumber / info.totalNumber;
+                    });
                 });
             }
         };
