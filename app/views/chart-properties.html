@@ -1,3 +1,8 @@
+<div class="input-group chart-type">
+    <span class="input-group-addon">Chart Type</span>
+    <select id="chart-type" class="form-control" ng-options="type for type in chartTypes" ng-model="chartOptions.chartType">
+    </select>
+</div>
 <div class="panel-group" id="chart-properties">
     <div ng-repeat="dataset in chart.datasets" class="panel panel-default">
         <div class="panel-heading" style="color: {{dataset.strokeColor}}">

@@ -8,10 +8,12 @@
  * Controller of the vSeeApp
  */
 angular.module('vSeeApp')
-    .controller('IndexCtrl', ['$scope', 'CalculationService', 'LineChartService', '$routeParams', '$http',
-        function ($scope, CalculationService, LineChartService, $routeParams, $http) {
+    .controller('IndexCtrl', ['$scope', 'CalculationService', 'LineChartService', '$routeParams', '$http', 'ChartTypes',
+        function ($scope, CalculationService, LineChartService, $routeParams, $http, ChartTypes) {
+            $scope.chartOptions = {};
             $scope.indexesLoaded.then(function() {
-                $scope.chartType = 'Bar';
+                $scope.chartTypes = ChartTypes;
+                $scope.chartOptions.chartType = ChartTypes[0];
                 var currentIndex = _.find($scope.indexes, function (index) {
                     return $routeParams.index === index.id;
                 });
