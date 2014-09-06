@@ -14,7 +14,8 @@ angular.module('vSeeApp')
                 var pipelines = _.groupBy(builds, function (build) {
                     return  build.pipeline;
                 });
-                return _.map(pipelines, function (pipeline) {
+                var labels = _.keys(pipelines);
+                var data = _.map(pipelines, function (pipeline) {
                     var pipelineInfo = _.map(moment.monthsShort(), function () {
                         return {
                             totalBuildTime: 0,
@@ -32,6 +33,10 @@ angular.module('vSeeApp')
                         return info.totalNumber === 0 ? 0 : info.totalBuildTime / info.totalNumber;
                     });
                 });
+                return {
+                    labels: labels,
+                    data: data
+                };
             }
         };
     }]);

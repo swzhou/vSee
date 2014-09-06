@@ -1,25 +1,40 @@
-<div ng-repeat="dataset in chart.datasets" class="panel panel-success">
-    <div class="panel-heading">Properties</div>
-    <div class="panel-body">
-        <div class="input-group">
-            <label for="fill-color">Fill color</label>
-            <input id="fill-color" colorpicker="rgba" class="form-control" type="text" ng-model="dataset.fillColor">
+<div class="panel-group" id="chart-properties">
+    <div ng-repeat="dataset in chart.datasets" class="panel panel-default">
+        <div class="panel-heading" style="color: {{dataset.strokeColor}}">
+            <h4 class="panel-title">
+                <a href="" data-toggle="collapse" data-parent="#chart-properties" data-target="#property-{{$index}}">
+                    <strong>{{dataset.label}}</strong> properties
+                </a>
+            </h4>
         </div>
-        <div class="input-group">
-            <label for="stroke-color">Stroke color</label>
-            <input id="stroke-color" colorpicker="hex" class="form-control" type="text" ng-model="dataset.strokeColor">
-        </div>
-        <div class="input-group">
-            <label for="point-color">Point color</label>
-            <input id="point-color" colorpicker="rgba" class="form-control" type="text" ng-model="dataset.pointColor">
-        </div>
-        <div class="input-group">
-            <label for="point-stroke-color">Point stroke color</label>
-            <input id="point-stroke-color" colorpicker="hex" class="form-control" type="text" ng-model="dataset.pointStrokeColor">
-        </div>
-        <div class="input-group">
-            <label for="point-highlight-fill">Point highlight fill color</label>
-            <input id="point-highlight-fill" colorpicker="hex" class="form-control" type="text" ng-model="dataset.pointHighlightFill">
+        <div id="property-{{$index}}" class="panel-collapse collapse" ng-class="{in: $index===0}">
+            <div class="panel-body">
+                <div class="input-group">
+                    <label for="fill-color">Fill color</label>
+                    <input id="fill-color" colorpicker="rgba" class="form-control" type="text"
+                           ng-model="dataset.fillColor">
+                </div>
+                <div class="input-group">
+                    <label for="stroke-color">Stroke color</label>
+                    <input id="stroke-color" colorpicker="hex" class="form-control" type="text"
+                           ng-model="dataset.strokeColor">
+                </div>
+                <div class="input-group">
+                    <label for="point-color">Point color</label>
+                    <input id="point-color" colorpicker="rgba" class="form-control" type="text"
+                           ng-model="dataset.pointColor">
+                </div>
+                <div class="input-group">
+                    <label for="point-stroke-color">Point stroke color</label>
+                    <input id="point-stroke-color" colorpicker="hex" class="form-control" type="text"
+                           ng-model="dataset.pointStrokeColor">
+                </div>
+                <div class="input-group">
+                    <label for="point-highlight-fill">Point highlight fill color</label>
+                    <input id="point-highlight-fill" colorpicker="hex" class="form-control" type="text"
+                           ng-model="dataset.pointHighlightFill">
+                </div>
+            </div>
         </div>
     </div>
 </div>

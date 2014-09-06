@@ -16,8 +16,8 @@ angular.module('vSeeApp')
                 $scope.options = {};
                 var months = moment.monthsShort();
                 $scope.$watch('builds', function(builds) {
-                    var data = BuildTimeService.calculate(builds);
-                    $scope.chart = LineChartService.draw(months, data);
+                    var result = BuildTimeService.calculate(builds);
+                    $scope.chart = LineChartService.draw(months, result);
                 }, true);
             });
         }]);

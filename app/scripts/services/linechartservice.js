@@ -26,9 +26,12 @@ angular.module('vSeeApp')
             }
         ];
         return {
-            draw: function (labels, data) {
+            draw: function (labels, result) {
+                var lineLabels = result.labels;
+                var data = result.data;
                 var datasets = _.map(data, function (datum, index) {
                     return {
+                        label: lineLabels[index],
                         fillColor: colors[index].fillColor,
                         strokeColor: colors[index].strokeColor,
                         pointColor: colors[index].pointColor,
