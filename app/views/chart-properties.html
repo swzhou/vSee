@@ -3,11 +3,11 @@
         <div class="panel-heading" style="color: {{dataset.strokeColor}}">
             <h4 class="panel-title">
                 <a href="" data-toggle="collapse" data-parent="#chart-properties" data-target="#property-{{$index}}">
-                    <strong>{{dataset.label}}</strong> properties
+                    <strong>{{dataset.label}}</strong>
                 </a>
             </h4>
         </div>
-        <div id="property-{{$index}}" class="panel-collapse collapse" ng-class="{in: $index===0}">
+        <div id="property-{{$index}}" class="panel-collapse collapse">
             <div class="panel-body">
                 <div class="input-group">
                     <label for="fill-color">Fill color</label>

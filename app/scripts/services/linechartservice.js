@@ -8,23 +8,7 @@
  * Service in the vSeeApp.
  */
 angular.module('vSeeApp')
-    .service('LineChartService', function () {
-        var colors = [
-            {
-                fillColor: "rgba(151,187,205,0)",
-                strokeColor: "#e67e22",
-                pointColor: "rgba(151,187,205,0)",
-                pointStrokeColor: "#e67e22",
-                pointHighlightFill: '#ffffff'
-            },
-            {
-                fillColor: "rgba(151,187,205,0)",
-                strokeColor: "#e67e22",
-                pointColor: "rgba(151,187,205,0)",
-                pointStrokeColor: "#e67e22",
-                pointHighlightFill: '#ffffff'
-            }
-        ];
+    .service('LineChartService', ['color', function (color) {
         return {
             draw: function (labels, result) {
                 var lineLabels = result.labels;
@@ -32,11 +16,11 @@ angular.module('vSeeApp')
                 var datasets = _.map(data, function (datum, index) {
                     return {
                         label: lineLabels[index],
-                        fillColor: colors[index].fillColor,
-                        strokeColor: colors[index].strokeColor,
-                        pointColor: colors[index].pointColor,
-                        pointStrokeColor: colors[index].pointStrokeColor,
-                        pointHighlightFill: colors[index].pointHighlightFill,
+                        fillColor: color[index].fillColor,
+                        strokeColor: color[index].strokeColor,
+                        pointColor: color[index].pointColor,
+                        pointStrokeColor: color[index].pointStrokeColor,
+                        pointHighlightFill: color[index].pointHighlightFill,
                         data: datum
                     };
                 });
@@ -46,4 +30,4 @@ angular.module('vSeeApp')
                 };
             }
         };
-    });
+    }]);
