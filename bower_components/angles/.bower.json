@@ -28,6 +28,5 @@
   },
   "_source": "git://github.com/lgsilver/angles.git",
   "_target": "*",
-  "_originalSource": "angles",
-  "_direct": true
+  "_originalSource": "angles"
 }

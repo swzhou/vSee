@@ -16,7 +16,6 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'angularCharts',
         'angles',
         'mgcrea.ngStrap',
         'colorpicker.module'
